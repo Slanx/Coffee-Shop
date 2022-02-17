@@ -5,9 +5,9 @@ const Header = () =>{
     return(
         <header className="header">
             <nav className="header__nav">
-                <a href='#' className="header__nav-item"><span>Coffee house</span></a>
-                <a href='#' className="header__nav-item">Our coffee</a>
-                <a href='#' className="header__nav-item">For your pleasure</a>
+                <a href='# ' className="header__nav-item"><span>Coffee house</span></a>
+                <a href='# ' className="header__nav-item">Our coffee</a>
+                <a href='# ' className="header__nav-item">For your pleasure</a>
             </nav>
             <div className="container">
                 <div className='header__content'>
@@ -22,7 +22,7 @@ const Header = () =>{
                     </p>
                 </div>
                 <div className="header__link">
-                    <a href='#' className="header__link-item">More</a>
+                    <a href='# ' className="header__link-item">More</a>
                 </div>
                 </div>
             </div>

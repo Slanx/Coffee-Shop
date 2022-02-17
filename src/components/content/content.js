@@ -4,8 +4,21 @@ import SolimoCoffee from './img/SolimoCoffeeBeans.jpg';
 import AromisoCoffee from './img/AromisoCoffee.jpg';
 import PrestoCoffee from './img/PrestoCoffeeBeans.jpg';
 
+import CoffeeItem from '../coffee-item/coffee-item';
+
 
 const Content = () =>{
+
+    const data = [
+        {src:SolimoCoffee, tittle:'Solimo Coffee Beans 2 kg', price:10.73},
+        {src:PrestoCoffee, tittle:'Presto Coffee Beans 1 kg', price:15.99},
+        {src:AromisoCoffee, tittle:'AROMISTICO Coffee 1 kg', price:6.99}
+    ]
+
+    const List = data.map((item) =>{
+        return(<CoffeeItem src={item.src} tittle={item.tittle} price ={item.price} />);
+    })
+
     return(
         <div className="content">
                 <div className="content__info">
@@ -36,27 +49,7 @@ const Content = () =>{
                             Our best
                         </h2>
                         <div className="content__product-list">
-                            <div className="content__product-item">
-                                <img src={SolimoCoffee} alt="SolimoCoffee pic" className="content__product-image" />
-                                <h3 className="content__product-item-tittle">
-                                Solimo Coffee Beans 2 kg
-                                </h3>
-                                <span className='content__product-item-price'>10.73$</span>
-                            </div>
-                            <div className="content__product-item">
-                                <img src={PrestoCoffee} alt="SolimoCoffee pic" className="content__product-image" />
-                                <h3 className="content__product-item-tittle">
-                                Presto Coffee Beans 1 kg
-                                </h3>
-                                <span className='content__product-item-price'>15.99$</span>
-                            </div>
-                            <div className="content__product-item">
-                                <img src={AromisoCoffee} alt="SolimoCoffee pic" className="content__product-image" />
-                                <h3 className="content__product-item-tittle">
-                                AROMISTICO Coffee 1 kg
-                                </h3>
-                                <span className='content__product-item-price'>6.99$</span>
-                            </div>
+                            {List}
                         </div>
                     </div>
                 </div>
