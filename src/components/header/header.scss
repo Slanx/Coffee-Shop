@@ -1,21 +1,26 @@
+.container {
+    margin: 0 auto;
+}
+
 .header {
     background-image: url('./img/main__bg.jpg');
-    padding: 48px 105px 200px 105px;
+    padding: 50px 105px 200px 105px;
     color: #FFFFFF;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
     &__nav {
-        margin-bottom: 110px;
+        margin-bottom: 117px;
     }
 
     &__nav-item {
-        margin: 0px 20px 0px 20px;
+        margin: 0px 20px 0px 25px;
         font-size: 12px;
         color: #FFFFFF;
+        text-decoration: none;
 
         span {
             background: url('./img/icon/logo.svg') 0 0 no-repeat;
-            padding: 17px 0 0px 35px;
+            padding: 23px 0 0px 35px;
         }
     }
 
@@ -24,31 +29,33 @@
         text-align: center;
 
         img {
-            margin-bottom: 20px;
+            margin-bottom: 34px;
         }
     }
 
     &__tittle {
         font-size: 40px;
-        margin: 0 0 10px 0;
+        margin: 0 0 20px 0;
     }
 
     &__descr {
         font-size: 24px;
 
         p {
-            margin: 0 0 16px 0;
+            margin: 0 0 20px 0;
         }
     }
 
     &__link {
+        margin-top: 5px;
+        display: inline-block;
         padding: 5px 42px 10px 42px;
         border: 1px solid #FFFFFF;
-        box-sizing: border-box;
-        border-radius: 3px;
-        font-family: 'Merienda', sans-serif;
-        color: #FFFFFF;
         font-size: 14px;
         background-color: rgba(0, 0, 0, 0);
+
+        a {
+            color: #FFFFFF;
+        }
     }
 }

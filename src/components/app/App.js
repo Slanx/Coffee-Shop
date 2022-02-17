@@ -1,18 +1,15 @@
 import './App.scss';
 
 import Header from '../header/header';
+import Content from '../content/content';
+import Footer from '../footer/footer';
 
 const App = () => {
   return (
     <div className='Wrapper'>
       <Header />
-      <div className="content">
-        <div className="content__info"></div>
-        <div className="content__best"></div>
-      </div>
-      <footer>
-        
-      </footer>
+      <Content />
+      <Footer/>
     </div>
   );
 
