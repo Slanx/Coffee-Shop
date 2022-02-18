@@ -1,0 +1,35 @@
+.filters {
+    display: flex;
+    flex: 0 0 47%;
+    justify-content: space-between;
+
+    &__descr {
+        flex: 0 0 10%;
+        display: flex;
+        align-items: center;
+
+        span {
+            white-space: nowrap;
+        }
+    }
+
+    &__btns-gruop {
+        flex: 0 0 72%;
+        display: flex;
+        justify-content: space-between;
+
+        :first-child {
+            border-radius: 4px 0px 0px 4px;
+        }
+
+        :last-child {
+            border-radius: 0px 4px 4px 0px;
+        }
+    }
+
+    &__btn {
+        flex: 0 0 31.333%;
+        background: #FFFFFF;
+        box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25);
+    }
+}

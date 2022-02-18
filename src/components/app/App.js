@@ -5,6 +5,7 @@ import Content from '../content/content';
 import Footer from '../footer/footer';
 
 const App = () => {
+  
   return (
     <div className='Wrapper'>
       <Header />

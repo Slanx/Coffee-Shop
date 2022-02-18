@@ -1,14 +1,21 @@
 import './coffee-item.scss';
 
 
-const CoffeeItem = ({src, tittle, price}) =>{
+const CoffeeItem = ({src, tittle, price, country}) =>{
     return(
         <div className="coffee-item">
-            <img src={src} alt="SolimoCoffee pic" className="coffee-item__image" />
+            <div className="coffee-item__image">
+                <img src={src} alt="SolimoCoffee pic" className="image" />
+            </div>
             <h3 className="coffee-item__tittle">
             {tittle}
             </h3>
-            <span className='coffee-item__price'>{price + '$'}</span>
+            <div className='coffee-item__country'>
+                {country}
+            </div>
+            <div className='coffee-item__price'>
+                {price + '$'}
+            </div>
         </div>
     )
 }

@@ -1,60 +1,76 @@
 import './content.scss';
-import Beans_logo from '../app/img/Beans_logo.svg';
 import SolimoCoffee from './img/SolimoCoffeeBeans.jpg';
 import AromisoCoffee from './img/AromisoCoffee.jpg';
 import PrestoCoffee from './img/PrestoCoffeeBeans.jpg';
 
-import CoffeeItem from '../coffee-item/coffee-item';
+import { Component } from 'react';
+import MainPage from '../main-page/main-page';
+import Coffee from '../coffee/coffee';
+
+class Content extends Component{
+    constructor(){
+        super();
+        this.state ={
+            data: [
+                {src:SolimoCoffee, tittle:'Solimo Coffee Beans 2 kg', price:10.73, country:'Brazil', key:1},
+                {src:PrestoCoffee, tittle:'Presto Coffee Beans 1 kg', price:15.99, country:'Kenya', key:2},
+                {src:AromisoCoffee, tittle:'AROMISTICO Coffee 1 kg', price:6.99, country:'Kenya', key:3},
+                {src:AromisoCoffee, tittle:'AROMISTICO Coffee 1 kg', price:6.99, country:'Brazil', key:4},
+                {src:AromisoCoffee, tittle:'AROMISTICO Coffee 1 kg', price:6.99, country:'Columbia', key:5},
+                {src:AromisoCoffee, tittle:'AROMISTICO Coffee 1 kg', price:6.99, country:'Columbia', key:6}
+            ],
+            term: '',
+            filter: ''
+        }
+    }
+    
+
+    SearchCoffee = (data, term) =>{
+        if (term.length === 0) {
+            return data;
+        }
+
+        return data.filter(item => {
+            return item.tittle.indexOf(term) > -1
+        })
+    }
+
+    onUpdateSearch = (term) => {
+        this.setState({term});
+    }
+
+    onUpdateFilter = (filter) => {
+        this.setState({filter});
+    }
+
+    FilterCoffee = (data, filter) =>{
+        if (filter.length === 0){
+            return data;
+        }else{
+            return data.filter(item =>{
+                return item.country === filter;
+            })
+        }
+    }
 
 
-const Content = () =>{
+    render(){
 
-    const data = [
-        {src:SolimoCoffee, tittle:'Solimo Coffee Beans 2 kg', price:10.73},
-        {src:PrestoCoffee, tittle:'Presto Coffee Beans 1 kg', price:15.99},
-        {src:AromisoCoffee, tittle:'AROMISTICO Coffee 1 kg', price:6.99}
-    ]
+        const {data, term, filter} = this.state;
+        const visibleData = this.FilterCoffee(this.SearchCoffee(data, term), filter);
 
-    const List = data.map((item) =>{
-        return(<CoffeeItem src={item.src} tittle={item.tittle} price ={item.price} />);
-    })
 
-    return(
-        <div className="content">
-                <div className="content__info">
-                    <div className="container">
-                        <h2 className="content__info-tittle">About Us</h2>
-                        <img src={Beans_logo} alt="" className="content__info-logo" />
-                        <div className="content__info-descr">
-                            <p>
-                        Extremity sweetness difficult behaviour he of. On disposal of as landlord horrible.
-    Afraid at highly months do things on at. Situation recommend objection do intention
-    so questions. As greatly removed calling pleased improve an. Last ask him cold feel
-    met spot shy want. Children me laughing we prospect answered followed. At it went
-    is song that held help face.
-                            </p>
-                            <p>
-                        Now residence dashwoods she excellent you. Shade being under his bed her, Much
-    read on as draw. Blessing for ignorant exercise any yourself unpacked. Pleasant
-    horrible but confined day end marriage. Eagerness furniture set preserved far
-    recommend. Did even but nor are most gave hope. Secure active living depend son
-    repair day ladies now.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div className="content__product">
-                    <div className="container">
-                        <h2 className="content__product-tittle">
-                            Our best
-                        </h2>
-                        <div className="content__product-list">
-                            {List}
-                        </div>
-                    </div>
-                </div>
-        </div>
-    )
+        return(
+
+            <div className="content">
+                <Coffee 
+                data={visibleData} 
+                onUpdateSearch ={this.onUpdateSearch}
+                onUpdateFilter = {this.onUpdateFilter}/>
+                ;
+            </div>
+        )
+    }
 }
 
 export default Content;
