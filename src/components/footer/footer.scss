@@ -3,26 +3,29 @@
     text-align: center;
 
     &__nav {
-        margin: 0 0 30px 0;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
     }
 
-    &__nav-item {
-        margin: 0px 40px 0px 0px;
-        font-size: 12px;
-        color: black;
-        text-decoration: none;
+    .nav {
+        display: flex;
 
-        :last-child {
-            margin: 0px;
+        &__item {
+            a {
+                color: black;
+            }
         }
 
-        span {
+        &__item:first-child::before {
             background: url('./img/logo.svg') 0 0 no-repeat;
-            padding: 23px 0 0px 30px;
         }
     }
 
     &__logo {
-        padding-right: 40px;
+
+        img {
+            padding: 0 33px 0 0;
+        }
     }
 }

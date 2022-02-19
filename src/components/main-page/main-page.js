@@ -9,8 +9,10 @@ import CoffeeItem from '../coffee-item/coffee-item';
 
 const MainPage = ({data}) =>{
 
-    const List = data.map((item) =>{
-        return(<CoffeeItem src={item.src} tittle={item.tittle} price ={item.price} country ={item.country} />);
+    const List = data.map(({src, tittle, price, country, key}) => {
+        if(key < 4){
+            return (<CoffeeItem src={src} tittle={tittle} price ={price} country ={country} key={key} />)
+        } 
     })
 
     return(

@@ -2,6 +2,7 @@ import './coffee.scss';
 
 import Beans_logo from '../app/img/Beans_logo.svg';
 import Picture from './img/Group.jpg';
+import line from './img/Line.svg'
 
 import CoffeeItem from '../coffee-item/coffee-item';
 import CoffeeSearch from '../coffee-search/coffee-search';
@@ -41,6 +42,7 @@ const Coffee = ({data, onUpdateSearch, onUpdateFilter}) =>{
                     </div>
                     </div>
                 </div>
+                <div className="coffee__line"><img src={line} alt="line" className="line" /></div>  
                 <div className="coffee__catalog">
                     <div className="coffee__services">
                         <CoffeeSearch onUpdateSearch = {onUpdateSearch} />

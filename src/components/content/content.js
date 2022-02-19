@@ -20,7 +20,8 @@ class Content extends Component{
                 {src:AromisoCoffee, tittle:'AROMISTICO Coffee 1 kg', price:6.99, country:'Columbia', key:6}
             ],
             term: '',
-            filter: ''
+            filter: '',
+            page: ''
         }
     }
     
@@ -58,16 +59,18 @@ class Content extends Component{
 
         const {data, term, filter} = this.state;
         const visibleData = this.FilterCoffee(this.SearchCoffee(data, term), filter);
+        const cof =<Coffee 
+        data={visibleData} 
+        onUpdateSearch ={this.onUpdateSearch}
+        onUpdateFilter = {this.onUpdateFilter}/>;
+
+        const mainPage = (<MainPage data = {data} />)
 
 
         return(
 
             <div className="content">
-                <Coffee 
-                data={visibleData} 
-                onUpdateSearch ={this.onUpdateSearch}
-                onUpdateFilter = {this.onUpdateFilter}/>
-                ;
+                mainpage
             </div>
         )
     }

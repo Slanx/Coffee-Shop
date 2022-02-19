@@ -11,24 +11,33 @@ class CoffeeFilters extends Component{
     }
 
     onUpdateFilter = (e) =>{
-        let filter = e.target.value;
-        if (this.state.filter){
-            filter = '';
-        }
-        this.setState({filter})
-        this.props.onUpdateFilter(filter);
+        let currentFilter = e.target.value;
+        if (this.state.filter === currentFilter){
+            currentFilter = '';
+        } 
+        this.setState(({filter}) =>{
+                return{
+                    filter: currentFilter 
+                } 
+        })
+        this.props.onUpdateFilter(currentFilter);
     }
 
 
     render(){
         const Buttons = [
-            {name:'Brazil'},
-            {name:'Kenya'},
-            {name:'Columbia'}
+            {name:'Brazil', key:1},
+            {name:'Kenya', key:2},
+            {name:'Columbia', key:3}
         ];
 
-        const btnList = Buttons.map(item =>{
-            return <button className="filters__btn" type="button" value={item.name} onClick = {this.onUpdateFilter}>{item.name}</button>;
+
+        const btnList = Buttons.map(({name, key})  =>{
+            let btnClassName = 'filters__btn';
+            if (this.state.filter === name){
+                btnClassName += ` btn__active` 
+            }
+            return (<button className={btnClassName} type="button" value={name} onClick = {this.onUpdateFilter} key={key}>{name}</button>);
         }) 
 
 

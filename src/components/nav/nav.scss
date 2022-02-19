@@ -1,0 +1,28 @@
+.nav {
+    display: flex;
+
+    &__list {
+        display: flex;
+        margin: 0 -20px;
+    }
+
+    &__item {
+        padding: 0 20px;
+        font-size: 12px;
+        position: relative;
+
+        a {
+            color: #FFFFFF;
+        }
+    }
+
+    &__item:first-child::before {
+        content: '';
+        background: url('./img/icon/logo.svg') 0 0 no-repeat;
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        left: -15px;
+        top: -25px;
+    }
+}
