@@ -3,11 +3,11 @@ import beans__logo from './img/beans__logo.svg'
 
 import Nav from '../nav/nav';
 
-const Header = () =>{
+const Header = ({onUpdatePage}) =>{
     return(
         <header className="header">
             <nav className="header__nav">
-                <Nav />
+                <Nav onUpdatePage = {onUpdatePage} />
             </nav>
             <div className="container">
                 <div className='header__content'>

@@ -4,12 +4,12 @@ import AromisoCoffee from './img/AromisoCoffee.jpg';
 import PrestoCoffee from './img/PrestoCoffeeBeans.jpg';
 
 import { Component } from 'react';
-import MainPage from '../main-page/main-page';
+import Home from '../home/home';
 import Coffee from '../coffee/coffee';
 
 class Content extends Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state ={
             data: [
                 {src:SolimoCoffee, tittle:'Solimo Coffee Beans 2 kg', price:10.73, country:'Brazil', key:1},
@@ -20,8 +20,7 @@ class Content extends Component{
                 {src:AromisoCoffee, tittle:'AROMISTICO Coffee 1 kg', price:6.99, country:'Columbia', key:6}
             ],
             term: '',
-            filter: '',
-            page: ''
+            filter: ''
         }
     }
     
@@ -54,26 +53,42 @@ class Content extends Component{
         }
     }
 
+    FilterPage = (data, pageFilter) =>{
+        const pageObj = data.filter(item =>{
+            return item.filter === pageFilter;
+        });
+        return pageObj[0].name;
+    }
 
     render(){
-
         const {data, term, filter} = this.state;
+        const {page} = this.props;
+        
         const visibleData = this.FilterCoffee(this.SearchCoffee(data, term), filter);
-        const cof =<Coffee 
+
+        const CoffeePage =<Coffee 
         data={visibleData} 
         onUpdateSearch ={this.onUpdateSearch}
-        onUpdateFilter = {this.onUpdateFilter}/>;
+        onUpdateFilter = {this.onUpdateFilter}
+        />;
+        const HomePage = <Home 
+        data = {data} />;
+        const dataPage = [
+            {name: CoffeePage, filter: 'coffee'},
+            {name: HomePage, filter: 'home'}
+        ]
 
-        const mainPage = (<MainPage data = {data} />)
-
+        const visiblePage = this.FilterPage(dataPage, page)
 
         return(
 
             <div className="content">
-                mainpage
+                {visiblePage}
             </div>
         )
     }
 }
 
 export default Content;
+
+

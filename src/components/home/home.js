@@ -1,13 +1,13 @@
 import Beans_logo from '../app/img/Beans_logo.svg';
 
 
-import './main-page.scss'
+import './home.scss'
 import CoffeeItem from '../coffee-item/coffee-item';
 
 
 
 
-const MainPage = ({data}) =>{
+const Home = ({data}) =>{
 
     const List = data.map(({src, tittle, price, country, key}) => {
         if(key < 4){
@@ -16,12 +16,12 @@ const MainPage = ({data}) =>{
     })
 
     return(
-        <div className="main-page">
-                <div className="main-page__info">
+        <div className="home">
+                <div className="home__info">
                     <div className="container">
-                        <h2 className="main-page__info-tittle">About Us</h2>
-                        <img src={Beans_logo} alt="" className="main-page__info-logo" />
-                        <div className="main-page__info-descr">
+                        <h2 className="home__info-tittle">About Us</h2>
+                        <img src={Beans_logo} alt="" className="home__info-logo" />
+                        <div className="home__info-descr">
                             <p>
                         Extremity sweetness difficult behaviour he of. On disposal of as landlord horrible.
     Afraid at highly months do things on at. Situation recommend objection do intention
@@ -39,12 +39,12 @@ const MainPage = ({data}) =>{
                         </div>
                     </div>
                 </div>
-                <div className="main-page__product">
+                <div className="home__product">
                     <div className="container">
-                        <h2 className="main-page__product-tittle">
+                        <h2 className="home__product-tittle">
                             Our best
                         </h2>
-                        <div className="main-page__product-list">
+                        <div className="home__product-list">
                             {List}
                         </div>
                     </div>
@@ -53,4 +53,4 @@ const MainPage = ({data}) =>{
     )
 }
 
-export default MainPage;
+export default Home;
